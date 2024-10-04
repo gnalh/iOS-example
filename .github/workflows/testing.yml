@@ -39,6 +39,6 @@ jobs:
         with:
           org-slug: trunk-staging-org
           token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
-          paths: fastlane/test_output/UpcomingMovies.xcresult
+          xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
         env:
           TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io
