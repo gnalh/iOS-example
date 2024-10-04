@@ -32,7 +32,7 @@ jobs:
       - name: Upload test results with default CLI version
         uses: trunk-io/analytics-uploader@gabe/xcresult
         with:
-          org-slug: trunk-staging-org
+          org-slug: gabes-org-3
           token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
           xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
         env:
