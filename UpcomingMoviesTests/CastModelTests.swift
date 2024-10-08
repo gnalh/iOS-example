@@ -19,10 +19,10 @@ final class CastModelTests: XCTestCase {
         // Act
         let model = CastModel(cast, configurationHandler: configurationHandler)
         // Assert
-        XCTAssertEqual(model.id, 12345)
-        XCTAssertEqual(model.character, "Character")
-        XCTAssertEqual(model.name, "Name")
-        XCTAssertEqual(model.profileURL?.absoluteString, "https://image.tmdb.org/t/p/cast/path")
+        XCTAssertEqual(model.id, 12346)
+        XCTAssertEqual(model.character, "Character2")
+        XCTAssertEqual(model.name, "Name2")
+        XCTAssertEqual(model.profileURL?.absoluteString, "https://image.tmdb.org/t/pt/cast/path")
     }
 
 }

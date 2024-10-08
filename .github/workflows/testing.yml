@@ -33,9 +33,10 @@ jobs:
   upload:
     needs: test
     runs-on: ubuntu-latest
+    if: always()
     steps:
       - name: Upload test results with default CLI version
-        uses: trunk-io/analytics-uploader@gnalh-xcresult-test
+        uses: trunk-io/analytics-uploader@gabe/xcresult
         with:
           org-slug: trunk-staging-org
           token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
