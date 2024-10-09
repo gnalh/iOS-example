@@ -31,6 +31,7 @@ jobs:
         run: bundle exec fastlane tests
       - name: Upload test results with default CLI version
         uses: trunk-io/analytics-uploader@gabe/xcresult
+        if: always()
         with:
           org-slug: gabes-org-3
           token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
