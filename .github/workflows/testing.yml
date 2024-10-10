@@ -27,12 +27,14 @@ jobs:
         run: bundle install
       - name: Dependencies
         run: pod install
+      - name: Test
+        run: bundle exec fastlane tests
+        continue-on-error: true
       - name: Upload test results with default CLI version
         uses: trunk-io/analytics-uploader@gabe/xcresult-2
         if: always()
         with:
           org-slug: gabes-org-3
-          run: bundle exec fastlane tests
           token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
           xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
           quarantine: true
