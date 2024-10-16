@@ -27,18 +27,15 @@ jobs:
         run: bundle install
       - name: Dependencies
         run: pod install
-      - name: Run unit tests
+      - name: Test
         run: bundle exec fastlane tests
-
-  upload:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
+        continue-on-error: true
       - name: Upload test results with default CLI version
-        uses: trunk-io/analytics-uploader@main
+        uses: trunk-io/analytics-uploader@gabe/xcresult-2
         with:
-          org-slug: trunk-staging-org
+          org-slug: gabes-org-3
           token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
-          paths: fastlane/test_output/UpcomingMovies.xcresult
+          xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
+          quarantine: true
         env:
           TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io

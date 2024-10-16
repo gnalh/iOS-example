@@ -14,7 +14,9 @@ final class CrewModelTests: XCTestCase {
 
     func testInitWithCrew() {
         // Arrange
-        let crew = Crew.with(id: 12345, job: "Job", name: "Name", photoPath: "/path")
+        // randomly choose either 12345 or 12346 as the id
+        let id = Int.random(in: 12345...12346)
+        let crew = Crew.with(id: id, job: "Job", name: "Name", photoPath: "/path")
         let configurationHandler = MockConfigurationHandlerProtocol(regularImageBaseURLString: "https://image.tmdb.org/t/p/crew")
         // Act
         let model = CrewModel(crew, configurationHandler: configurationHandler)
