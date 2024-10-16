@@ -40,3 +40,13 @@ jobs:
           cli-version: 0.5.32
         env:
           TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io
+      - name: Upload test results with default CLI version
+        uses: trunk-io/analytics-uploader@main
+        with:
+          org-slug: gabes-org
+          token: ${{ secrets.TRUNK_DEV_ORG_API_TOKEN }}
+          xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
+          quarantine: true
+          cli-version: 0.5.32
+        env:
+          TRUNK_PUBLIC_API_ADDRESS: https://api.dev2.trunk-staging.io
