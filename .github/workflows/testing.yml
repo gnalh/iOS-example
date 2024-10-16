@@ -31,11 +31,12 @@ jobs:
         run: bundle exec fastlane tests
         continue-on-error: true
       - name: Upload test results with default CLI version
-        uses: trunk-io/analytics-uploader@gabe/xcresult-2
+        uses: trunk-io/analytics-uploader@main
         with:
           org-slug: gabes-org-3
           token: ${{ secrets.TRUNK_STAGING_ORG_API_TOKEN }}
           xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
           quarantine: true
+          cli-version: 0.5.32
         env:
           TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io
