@@ -39,4 +39,4 @@ jobs:
           quarantine: true
           cli-version: 0.5.38
         env:
-          TRUNK_PUBLIC_API_ADDRESS: https://api.trunk-staging.io
+          TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
