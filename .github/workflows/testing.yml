@@ -35,7 +35,7 @@ jobs:
       - name: Upload test results with default CLI version
         uses: trunk-io/analytics-uploader@main
         with:
-          org-slug: gabes-org-3
+          org-slug: gabes-org-2
           token: ${{ secrets.TRUNK_PROD_ORG_API_TOKEN }}
           xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
           quarantine: true
