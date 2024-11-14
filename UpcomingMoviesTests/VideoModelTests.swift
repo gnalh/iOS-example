@@ -12,7 +12,7 @@ import UpcomingMoviesDomain
 
 final class VideoModelTests: XCTestCase {
 
-    func testInitWithVideo() {
+    func testInitWithVideo() throws {
         try XCTSkipIf(true, "Skipping this test")
         // Arrange
         let video = Video.with(id: "12345",
