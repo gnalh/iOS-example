@@ -13,7 +13,7 @@ import UpcomingMoviesDomain
 final class GenreModelTests: XCTestCase {
 
     func testInitWithGenre() {
-        throw XCTSkip("Skipped")
+        try XCTSkipIf(true, "Skipping this test")
         // Arrange
         let genre = Genre(id: 12345, name: "Action")
         // Act
