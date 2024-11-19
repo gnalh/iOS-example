@@ -41,6 +41,7 @@ jobs:
           quarantine: true
         env:
           TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
+        continue-on-error: true
         
       - name: Upload test results with default CLI version
         uses: trunk-io/analytics-uploader@main
@@ -51,4 +52,4 @@ jobs:
           quarantine: true
         env:
           TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
-        continue-on-error: true
+        
