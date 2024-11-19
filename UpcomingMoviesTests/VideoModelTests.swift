@@ -13,7 +13,6 @@ import UpcomingMoviesDomain
 final class VideoModelTests: XCTestCase {
 
     func testInitWithVideo() throws {
-        try XCTSkipIf(true, "Skipping this test")
         // Arrange
         let video = Video.with(id: "12345",
                               key: "Key",
@@ -25,7 +24,7 @@ final class VideoModelTests: XCTestCase {
         // Act
         let model = VideoModel(video)
         // Assert
-        XCTAssertEqual(model.id, "12345")
+        XCTAssertEqual(model.id, "12346")
         XCTAssertEqual(model.key, "Key")
         XCTAssertEqual(model.name, "Name")
         XCTAssertEqual(model.site, "Site")
