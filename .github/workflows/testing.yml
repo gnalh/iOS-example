@@ -41,15 +41,4 @@ jobs:
           quarantine: true
         env:
           TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
-        continue-on-error: true
-        
-      - name: Upload test results with default CLI version
-        uses: trunk-io/analytics-uploader@main
-        with:
-          org-slug: simple-test-org-2
-          token: ${{ secrets.TRUNK_PROD_ORG_API_TOKEN_SIMPLE }}
-          xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
-          quarantine: true
-        env:
-          TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
         
