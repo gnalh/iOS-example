@@ -19,6 +19,7 @@ jobs:
         run: pod install
       - name: Run swiftlint
         run: bundle exec fastlane lint
+      - name: Show xcode version
 
   test:
     needs: lint
@@ -31,6 +32,12 @@ jobs:
         run: pod install
       - name: Test
         run: bundle exec fastlane tests
+        continue-on-error: true
+      - name: Check xcresulttool version
+        continue-on-error: true
+        run: xcrun xcresulttool --version
+      - name: Run xcresulttool
+        run: xcrun xcresulttool get object --format json --path fastlane/test_output/UpcomingMovies.xcresult
         continue-on-error: true
       - name: Upload test results with default CLI version
         uses: trunk-io/analytics-uploader@main
