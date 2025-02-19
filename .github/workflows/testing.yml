@@ -19,7 +19,7 @@ jobs:
         run: pod install
       - name: Run swiftlint
         run: bundle exec fastlane lint
-      - name: Show xcode version
+
 
   test:
     needs: lint
@@ -30,9 +30,19 @@ jobs:
         run: bundle install
       - name: Dependencies
         run: pod install
+      - name: Setup Xcode 15
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: 15
       - name: Test
         run: bundle exec fastlane tests
         continue-on-error: true
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cross-gem-${{ matrix.platform }}
+          path: fastlane/test_output/UpcomingMovies.xcresult
+          if-no-files-found: error
+          retention-days: 1
       - name: Check xcresulttool version
         continue-on-error: true
         run: xcrun xcresulttool --version
@@ -46,6 +56,7 @@ jobs:
           token: ${{ secrets.TRUNK_PROD_ORG_API_TOKEN }}
           xcresult-path: fastlane/test_output/UpcomingMovies.xcresult
           quarantine: true
+	  cli-version: 0.7.0-beta.1
         env:
           TRUNK_PUBLIC_API_ADDRESS: https://api.trunk.io
         
